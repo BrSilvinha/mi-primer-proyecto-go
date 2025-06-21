@@ -1,15 +1,22 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 )
 
-func main() {
-	fmt.Println("Hello, World!")
-	fmt.Println("Presiona Enter para continuar...")
+type Persona struct {
+	Nombre string
+	Edad   int
+	Email  string
+}
 
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
+func (p *Persona) Saludar() string {
+	return fmt.Sprintf("Hola, soy %s", p.Nombre)
+}
+func main() {
+	p := &Persona{
+		Nombre: "Juan",
+		Edad:   30,
+		Email:  "juan@ejemplo.com"}
+	fmt.Println(p.Saludar())
 }
